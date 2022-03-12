@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
                                 child: const Center(
                                   child: Text(
                                     'Insert the calendar here',
-                                    style: TextStyle(fontSize: 10),
+                                    style: TextStyle(fontSize: 12.0),
                                   ),
                                 ),
                               ),
@@ -136,6 +136,56 @@ class HomeScreen extends StatelessWidget {
                       ),
                     )
                   ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  20.0,
+                  10.0,
+                  10.0,
+                  10.0,
+                ),
+                child: Card(
+                  elevation: 2,
+                  color: kDefaultWhite.withOpacity(0.8),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: height / 5.0,
+                    child: Center(
+                      child: Text(
+                        'Today'.toUpperCase(),
+                        style: const TextStyle(fontSize: 12.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  20.0,
+                  10.0,
+                  10.0,
+                  10.0,
+                ),
+                child: Card(
+                  elevation: 2,
+                  color: kDefaultWhite.withOpacity(0.8),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: height / 5.0,
+                    child: Center(
+                      child: Text(
+                        'YOUR WELLNESS'.toUpperCase(),
+                        style: const TextStyle(fontSize: 12.0),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
