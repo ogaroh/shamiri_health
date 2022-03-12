@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: height / 2.5,
+                height: height / 2.0,
                 width: double.infinity,
                 child: Stack(
                   children: [
@@ -49,14 +49,14 @@ class HomeScreen extends StatelessWidget {
                         reverse: false,
                       ),
                       child: Container(
-                        height: height / 2.5,
+                        height: height / 2.0,
                         width: double.infinity,
                         color: kBrandAccent,
                       ),
                     ),
                     SafeArea(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                               20.0,
                               0.0,
                               10.0,
-                              10.0,
+                              0.0,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                               20.0,
                               0.0,
                               10.0,
-                              10.0,
+                              0.0,
                             ),
                             child: Text(
                               DateFormat('MMM dd yyyy').format(DateTime.now()),
@@ -104,6 +104,31 @@ class HomeScreen extends StatelessWidget {
                                 fontSize: 16.0,
                                 color: kDefaultWhite,
                                 fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              20.0,
+                              0.0,
+                              10.0,
+                              10.0,
+                            ),
+                            child: Card(
+                              elevation: 2,
+                              color: kDefaultWhite.withOpacity(0.8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: SizedBox(
+                                width: double.infinity,
+                                height: height / 5.0,
+                                child: const Center(
+                                  child: Text(
+                                    'Insert the calendar here',
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
