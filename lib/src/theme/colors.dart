@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 
 // convert custom color to material color
 Map<int, Color> color = {
-  50: const Color.fromRGBO(45, 150, 125, .1),
-  100: const Color.fromRGBO(45, 150, 125, .2),
-  200: const Color.fromRGBO(45, 150, 125, .3),
-  300: const Color.fromRGBO(45, 150, 125, .4),
-  400: const Color.fromRGBO(45, 150, 125, .5),
-  500: const Color.fromRGBO(45, 150, 125, .6),
-  600: const Color.fromRGBO(45, 150, 125, .7),
-  700: const Color.fromRGBO(45, 150, 125, .8),
-  800: const Color.fromRGBO(45, 150, 125, .9),
-  900: const Color.fromRGBO(45, 150, 125, 1),
+  50: const Color.fromRGBO(48, 138, 127, .1),
+  100: const Color.fromRGBO(48, 138, 127, .2),
+  200: const Color.fromRGBO(48, 138, 127, .3),
+  300: const Color.fromRGBO(48, 138, 127, .4),
+  400: const Color.fromRGBO(48, 138, 127, .5),
+  500: const Color.fromRGBO(48, 138, 127, .6),
+  600: const Color.fromRGBO(48, 138, 127, .7),
+  700: const Color.fromRGBO(48, 138, 127, .8),
+  800: const Color.fromRGBO(48, 138, 127, .9),
+  900: const Color.fromRGBO(48, 138, 127, 1),
 };
 
-MaterialColor customPrimarySwatch = MaterialColor(0xff2d967d, color);
+MaterialColor customPrimarySwatch = MaterialColor(0xff308a7f, color);
 
-const kBrandMain = Color(0xff2d967d);
+const kBrandMain = Color(0xff308a7f);
 const kBrandAccent = Color(0xff37bd9d);
 const kBrandLight = Color(0xfff0f4ea);
 const kDefaultBlack = Color(0xff000000);

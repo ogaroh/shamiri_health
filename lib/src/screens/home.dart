@@ -2,6 +2,7 @@ import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:intl/intl.dart';
+import 'package:shamiri/src/custom/gauge_chart.dart';
 import 'package:shamiri/src/settings/settings_view.dart';
 import 'package:shamiri/src/theme/colors.dart';
 
@@ -154,12 +155,7 @@ class HomeScreen extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     height: height / 5.0,
-                    child: Center(
-                      child: Text(
-                        'Today'.toUpperCase(),
-                        style: const TextStyle(fontSize: 12.0),
-                      ),
-                    ),
+                    child: const Text("No data"),
                   ),
                 ),
               ),
