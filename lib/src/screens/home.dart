@@ -2,13 +2,78 @@ import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:intl/intl.dart';
+import 'package:shamiri/src/custom/default_chart.dart';
+import 'package:shamiri/src/models/category.dart';
 import 'package:shamiri/src/settings/settings_view.dart';
 import 'package:shamiri/src/theme/colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   static const routeName = '/';
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Widget> v = [];
+
+  final List<ChartCategory> data = [
+    ChartCategory(
+      title: "Mental Health",
+      rating: 8,
+      color: Colors.pinkAccent,
+    ),
+    ChartCategory(
+      title: "Satisfaction",
+      rating: 4,
+      color: Colors.amber,
+    ),
+    ChartCategory(
+      title: "Family/Social Support",
+      rating: 5,
+      color: Colors.blue,
+    ),
+    ChartCategory(
+      title: "Work",
+      rating: 6,
+      color: Colors.teal,
+    ),
+    ChartCategory(
+      title: "Sense of Purpose",
+      rating: 4,
+      color: Colors.purpleAccent,
+    ),
+  ];
+
+  buildKey() {
+    for (int i = 0; i < data.length; i++) {
+      ChartCategory category = data[i];
+      v.add(
+        ListTile(
+          leading: Container(
+            height: 10.0,
+            width: 10.0,
+            decoration: BoxDecoration(
+              color: category.color,
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+          ),
+          title: Text(
+            category.title,
+            style: const TextStyle(fontSize: 10),
+          ),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    buildKey();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -151,10 +216,26 @@ class HomeScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: height / 5.0,
-                    child: const Text("No data"),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: width / 3.0,
+                        height: height / 3.0,
+                        child: Center(
+                          child: DefaultChart(data: data),
+                        ),
+                      ),
+                      SizedBox(
+                        width: width / 2.0,
+                        height: height / 3.0,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: v,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

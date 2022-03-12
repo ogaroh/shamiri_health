@@ -25,7 +25,7 @@ class CustomTheme {
 
 ThemeData kLightTheme = ThemeData(
   primarySwatch: customPrimarySwatch,
-  fontFamily: GoogleFonts.comfortaa().fontFamily,
+  fontFamily: GoogleFonts.raleway().fontFamily,
   brightness: Brightness.light,
   appBarTheme: const AppBarTheme(
     elevation: 0.0,
@@ -71,7 +71,7 @@ ThemeData kLightTheme = ThemeData(
 ThemeData kDarkTheme = ThemeData(
   primarySwatch: customPrimarySwatch,
   brightness: Brightness.dark,
-  fontFamily: GoogleFonts.comfortaa().fontFamily,
+  fontFamily: GoogleFonts.raleway().fontFamily,
   appBarTheme: const AppBarTheme(
     elevation: 0.0,
     backgroundColor: kDarkestGrey,

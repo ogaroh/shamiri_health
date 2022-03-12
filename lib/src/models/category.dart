@@ -1,9 +1,9 @@
-import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter/material.dart';
 
 class ChartCategory {
   final String title;
   final int rating;
-  final charts.Color color;
+  final Color color;
 
   ChartCategory({
     required this.title,
