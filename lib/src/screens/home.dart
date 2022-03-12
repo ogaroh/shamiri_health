@@ -1,5 +1,6 @@
 import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:intl/intl.dart';
 import 'package:shamiri/src/settings/settings_view.dart';
 import 'package:shamiri/src/theme/colors.dart';
@@ -42,10 +43,16 @@ class HomeScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Stack(
                   children: [
-                    Container(
-                      height: height / 2.5,
-                      width: double.infinity,
-                      color: kBrandAccent,
+                    ClipPath(
+                      clipper: WaveClipperTwo(
+                        flip: false,
+                        reverse: false,
+                      ),
+                      child: Container(
+                        height: height / 2.5,
+                        width: double.infinity,
+                        color: kBrandAccent,
+                      ),
                     ),
                     SafeArea(
                       child: Column(
