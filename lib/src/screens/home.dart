@@ -4,7 +4,9 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:intl/intl.dart';
 import 'package:shamiri/src/constants.dart';
 import 'package:shamiri/src/custom/default_chart.dart';
+import 'package:shamiri/src/custom/plan_card.dart';
 import 'package:shamiri/src/models/category.dart';
+import 'package:shamiri/src/models/plan.dart';
 import 'package:shamiri/src/routes/route_transitions.dart';
 import 'package:shamiri/src/screens/daily_weekly.dart';
 import 'package:shamiri/src/settings/settings_view.dart';
@@ -290,17 +292,35 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Padding(
-                                padding: EdgeInsets.all(8.0),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  "TODAY",
-                                  style: TextStyle(
+                                  "TODAY".toUpperCase(),
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
+                                    fontSize: 13.0,
                                   ),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
                               ...v,
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: const [
+                                  Text(
+                                    "More",
+                                    style: TextStyle(
+                                      // color: kDefaultWhite,
+                                      fontSize: 12.0,
+                                    ),
+                                  ),
+                                  Icon(
+                                    CarbonIcons.caret_right,
+                                    // color: kDefaultWhite,
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
@@ -324,12 +344,59 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: SizedBox(
                     width: double.infinity,
-                    height: height / 5.0,
-                    child: Center(
-                      child: Text(
-                        'YOUR WELLNESS'.toUpperCase(),
-                        style: const TextStyle(fontSize: 12.0),
-                      ),
+                    height: height / 3.0,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            'YOUR WELLNESS PLAN'.toUpperCase(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13.0,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 200,
+                          child: ListView.builder(
+                            padding: const EdgeInsets.all(8.0),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: planData.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              Plan plan = planData[index];
+                              return PlanCard(plan: plan);
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 20.0,
+                            right: 20.0,
+                            bottom: 10.0,
+                            top: 10.0,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: const [
+                              Text(
+                                "More",
+                                style: TextStyle(
+                                  // color: kDefaultWhite,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              Icon(
+                                CarbonIcons.caret_right,
+                                // color: kDefaultWhite,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
