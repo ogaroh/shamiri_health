@@ -6,6 +6,7 @@ import 'package:shamiri/src/custom/default_chart.dart';
 import 'package:shamiri/src/models/category.dart';
 import 'package:shamiri/src/settings/settings_view.dart';
 import 'package:shamiri/src/theme/colors.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -51,18 +52,28 @@ class _HomeScreenState extends State<HomeScreen> {
     for (int i = 0; i < data.length; i++) {
       ChartCategory category = data[i];
       v.add(
-        ListTile(
-          leading: Container(
-            height: 10.0,
-            width: 10.0,
-            decoration: BoxDecoration(
-              color: category.color,
-              borderRadius: BorderRadius.circular(50.0),
-            ),
-          ),
-          title: Text(
-            category.title,
-            style: const TextStyle(fontSize: 10),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 10.0,
+                width: 10.0,
+                decoration: BoxDecoration(
+                  color: category.color,
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  category.title,
+                  style: const TextStyle(fontSize: 10),
+                ),
+              )
+            ],
           ),
         ),
       );
@@ -104,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: height / 2.0,
+                height: height / 1.5,
                 width: double.infinity,
                 child: Stack(
                   children: [
@@ -114,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         reverse: false,
                       ),
                       child: Container(
-                        height: height / 2.0,
+                        height: height / 1.5,
                         width: double.infinity,
                         color: kBrandAccent,
                       ),
@@ -187,11 +198,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: SizedBox(
                                 width: double.infinity,
-                                height: height / 5.0,
-                                child: const Center(
-                                  child: Text(
-                                    'Insert the calendar here',
-                                    style: TextStyle(fontSize: 12.0),
+                                // height: height / 5.0,
+                                child: Center(
+                                  child: TableCalendar(
+                                    firstDay: DateTime.utc(2010, 10, 16),
+                                    lastDay: DateTime.utc(2030, 3, 14),
+                                    focusedDay: DateTime.now(),
                                   ),
                                 ),
                               ),
@@ -232,7 +244,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: height / 3.0,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: v,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                "TODAY",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            ...v,
+                          ],
                         ),
                       ),
                     ],
