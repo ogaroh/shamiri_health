@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamiri/src/models/category.dart';
+import 'package:shamiri/src/models/recommendation.dart';
 
 import 'models/plan.dart';
 
@@ -50,3 +51,9 @@ final List<Plan> planData = [
     image: "assets/images/doctor_male.jpeg",
   ),
 ];
+
+// hardcoded recommendation
+Recommendation defaultRecommendation = Recommendation(
+    image: "assets/images/self_care_recommendation.jpeg",
+    title: "1-on-1 Session",
+    subtitle: "Talk to our therapists about employee burnout?");

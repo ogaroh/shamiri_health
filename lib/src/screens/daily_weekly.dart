@@ -1,3 +1,4 @@
+import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -5,6 +6,7 @@ import 'package:shamiri/src/constants.dart';
 import 'package:shamiri/src/custom/bar.dart';
 import 'package:shamiri/src/custom/bubble.dart';
 import 'package:shamiri/src/custom/default_chart.dart';
+import 'package:shamiri/src/custom/recommendation_card.dart';
 import 'package:shamiri/src/models/category.dart';
 import 'package:shamiri/src/theme/colors.dart';
 
@@ -91,7 +93,7 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
                 }
               },
               children: <Widget>[
-                // TODO: daily UI
+                // daily UI
                 ConstrainedBox(
                   constraints: const BoxConstraints.expand(),
                   child: Column(
@@ -132,10 +134,112 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
 
                 ConstrainedBox(
                   constraints: const BoxConstraints.expand(),
-                  child: const Center(
-                    child: Text(
-                      "Weekly",
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          "Mental Health",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: const [
+                                  Text(
+                                    "Weekly Average",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    "6",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 30.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "Week-over-week",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.0,
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Icon(CarbonIcons.arrow_up),
+                                      Text(
+                                        "20%",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 30.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: const [
+                                  Text(
+                                    "Goal",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 12.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    "8",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 30.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const Divider(),
+                      const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          "Recommendation",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ),
+                      RecommendationCard(
+                        recommendation: defaultRecommendation,
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -200,6 +304,12 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.decelerate,
                   );
+                  if (mounted) {
+                    setState(() {
+                      title =
+                          "${DateFormat('EEE dd').format(widget.selectedDate)} - ${DateFormat('EEE dd, yyyy').format(widget.selectedDate.add(const Duration(days: 7)))}";
+                    });
+                  }
                 },
                 child: Text(
                   'Weekly',

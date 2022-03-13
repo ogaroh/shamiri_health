@@ -1,9 +1,9 @@
-class Plan {
+class Recommendation {
   final String image;
   final String title;
   final String subtitle;
 
-  Plan({
+  Recommendation({
     required this.image,
     required this.title,
     required this.subtitle,
