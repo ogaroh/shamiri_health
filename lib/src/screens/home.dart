@@ -2,6 +2,7 @@ import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:intl/intl.dart';
+import 'package:shamiri/src/constants.dart';
 import 'package:shamiri/src/custom/default_chart.dart';
 import 'package:shamiri/src/models/category.dart';
 import 'package:shamiri/src/routes/route_transitions.dart';
@@ -24,34 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
   CalendarFormat calendarFormat = CalendarFormat.week;
   DateTime selectedDate = DateTime.now();
   DateTime focusedDate = DateTime.now();
-
-  final List<ChartCategory> data = [
-    ChartCategory(
-      title: "Mental Health",
-      rating: 8,
-      color: Colors.pinkAccent,
-    ),
-    ChartCategory(
-      title: "Satisfaction",
-      rating: 4,
-      color: Colors.amber,
-    ),
-    ChartCategory(
-      title: "Family/Social Support",
-      rating: 5,
-      color: Colors.blue,
-    ),
-    ChartCategory(
-      title: "Work",
-      rating: 6,
-      color: Colors.teal,
-    ),
-    ChartCategory(
-      title: "Sense of Purpose",
-      rating: 4,
-      color: Colors.purpleAccent,
-    ),
-  ];
 
   buildKey() {
     for (int i = 0; i < data.length; i++) {
@@ -122,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ? height / 2.5
                             : height / 1.5,
                         width: double.infinity,
-                        color: kBrandAccent,
+                        color: kBrandMain,
                       ),
                     ),
                     SafeArea(
@@ -170,7 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               10.0,
                             ),
                             child: Text(
-                              DateFormat('MMMM dd, yyyy').format(focusedDate),
+                              DateFormat('EEE MMMM dd, yyyy')
+                                  .format(focusedDate),
                               style: const TextStyle(
                                 fontSize: 20.0,
                                 color: kDefaultWhite,
