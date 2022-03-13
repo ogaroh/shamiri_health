@@ -27,20 +27,21 @@ ThemeData kLightTheme = ThemeData(
   primarySwatch: customPrimarySwatch,
   fontFamily: GoogleFonts.raleway().fontFamily,
   brightness: Brightness.light,
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     elevation: 0.0,
     backgroundColor: kDefaultWhite,
     titleTextStyle: TextStyle(
       fontSize: 15.0,
       fontWeight: FontWeight.w600,
       color: kBrandMain,
+      fontFamily: GoogleFonts.raleway().fontFamily,
     ),
     centerTitle: true,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: kBrandMain,
       size: 25.0,
     ),
-    actionsIconTheme: IconThemeData(
+    actionsIconTheme: const IconThemeData(
       color: kBrandMain,
       size: 25.0,
     ),
@@ -72,7 +73,7 @@ ThemeData kDarkTheme = ThemeData(
   primarySwatch: customPrimarySwatch,
   brightness: Brightness.dark,
   fontFamily: GoogleFonts.raleway().fontFamily,
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     elevation: 0.0,
     backgroundColor: kDarkestGrey,
     centerTitle: true,
@@ -80,12 +81,13 @@ ThemeData kDarkTheme = ThemeData(
       fontSize: 15.0,
       fontWeight: FontWeight.w600,
       color: kBrandAccent,
+      fontFamily: GoogleFonts.raleway().fontFamily,
     ),
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: kBrandAccent,
       size: 25.0,
     ),
-    actionsIconTheme: IconThemeData(
+    actionsIconTheme: const IconThemeData(
       color: kBrandAccent,
       size: 25.0,
     ),

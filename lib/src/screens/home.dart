@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:carbon_icons/carbon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -128,16 +126,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     SafeArea(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: ListView(
+                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
                             padding: const EdgeInsets.fromLTRB(
                               20.0,
                               0.0,
                               10.0,
-                              0.0,
+                              10.0,
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -169,11 +167,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               20.0,
                               0.0,
                               10.0,
-                              0.0,
+                              10.0,
                             ),
                             child: Text(
-                              DateFormat('MMMM dd, yyyy')
-                                  .format(DateTime.now()),
+                              DateFormat('MMMM dd, yyyy').format(focusedDate),
                               style: const TextStyle(
                                 fontSize: 20.0,
                                 color: kDefaultWhite,
@@ -186,11 +183,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               20.0,
                               0.0,
                               10.0,
-                              0.0,
+                              10.0,
                             ),
                             child: Card(
                               elevation: 2,
-                              color: kDefaultWhite.withOpacity(0.8),
+                              color: kDefaultWhite.withOpacity(0.9),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -204,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     focusedDay: focusedDate,
                                     currentDay: selectedDate,
                                     formatAnimationDuration:
-                                        const Duration(milliseconds: 500),
+                                        const Duration(milliseconds: 200),
                                     onFormatChanged: (format) {
                                       setState(() {
                                         calendarFormat == format;

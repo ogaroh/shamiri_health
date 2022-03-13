@@ -11,7 +11,7 @@ class DailyWeeklyScreen extends StatefulWidget {
 }
 
 class _DailyWeeklyScreenState extends State<DailyWeeklyScreen> {
-  String title = '';
+  String title = 'Daily/Weekly Analytics';
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen> {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Center(
+        body: const Center(
           child: Text("Daily/Weekly"),
         ));
   }
