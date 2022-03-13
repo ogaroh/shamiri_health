@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             child: Card(
                               elevation: 2,
-                              color: kDefaultWhite.withOpacity(0.9),
+                              // color: kDefaultWhite.withOpacity(0.9),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -222,6 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
                                     calendarFormat == CalendarFormat.week
@@ -267,7 +268,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Card(
                     elevation: 2,
-                    color: kDefaultWhite.withOpacity(0.8),
+                    // color: kDefaultWhite.withOpacity(0.8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -317,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Card(
                   elevation: 2,
-                  color: kDefaultWhite.withOpacity(0.8),
+                  // color: kDefaultWhite.withOpacity(0.8),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

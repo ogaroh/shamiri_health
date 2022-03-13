@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:shamiri/src/constants.dart';
+import 'package:shamiri/src/custom/bar.dart';
 import 'package:shamiri/src/custom/bubble.dart';
 import 'package:shamiri/src/custom/default_chart.dart';
+import 'package:shamiri/src/models/category.dart';
 import 'package:shamiri/src/theme/colors.dart';
 
 class DailyWeeklyScreen extends StatefulWidget {
@@ -19,10 +21,22 @@ class DailyWeeklyScreen extends StatefulWidget {
 class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
     with SingleTickerProviderStateMixin {
   String title = 'Daily/Weekly Analytics';
+
   late PageController _pageController;
 
   Color left = kBrandMain;
   Color right = kDefaultWhite;
+
+  List<Widget> v = [];
+
+  buildRatings() {
+    for (int i = 0; i < data.length; i++) {
+      ChartCategory category = data[i];
+      v.add(
+        CustomHorizontalBar(category: category),
+      );
+    }
+  }
 
   @override
   void dispose() {
@@ -35,6 +49,7 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
     super.initState();
     _pageController = PageController();
     title = DateFormat('EEE MMMM dd, yyyy').format(widget.selectedDate);
+    buildRatings();
   }
 
   @override
@@ -80,12 +95,34 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
                 ConstrainedBox(
                   constraints: const BoxConstraints.expand(),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: width,
-                        height: height / 3.0,
+                        // width: width,
+                        height: height / 3.5,
                         child: Center(
                           child: DefaultChart(data: data),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          20.0,
+                          10.0,
+                          20.0,
+                          10.0,
+                        ),
+                        child: Card(
+                          elevation: 2,
+                          // color: kDefaultWhite.withOpacity(0.8),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: v,
+                          ),
                         ),
                       ),
                     ],

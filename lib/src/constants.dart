@@ -5,17 +5,17 @@ final List<ChartCategory> data = [
   ChartCategory(
     title: "Mental Health",
     rating: 8,
-    color: Colors.pinkAccent,
+    color: Colors.pinkAccent.shade100,
   ),
   ChartCategory(
     title: "Satisfaction",
     rating: 4,
-    color: Colors.amber,
+    color: Colors.amberAccent.shade400,
   ),
   ChartCategory(
     title: "Family/Social Support",
     rating: 5,
-    color: Colors.blue,
+    color: Colors.lightBlueAccent,
   ),
   ChartCategory(
     title: "Work",
@@ -24,7 +24,7 @@ final List<ChartCategory> data = [
   ),
   ChartCategory(
     title: "Sense of Purpose",
-    rating: 4,
-    color: Colors.purpleAccent,
+    rating: 2,
+    color: Colors.purpleAccent.shade100,
   ),
 ];
