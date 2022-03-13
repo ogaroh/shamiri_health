@@ -13,12 +13,12 @@ class RecommendationCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-        height: 300.0,
+        height: 250.0,
         width: 400.0,
         child: Stack(
           children: [
             Container(
-              height: 300.0,
+              height: 250.0,
               width: 400.0,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -34,7 +34,7 @@ class RecommendationCard extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: 100,
+                height: 80,
                 width: 400.0,
                 decoration: BoxDecoration(
                   color: kBrandMain.withOpacity(0.9),

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:shamiri/src/constants.dart';
 import 'package:shamiri/src/custom/bar.dart';
+import 'package:shamiri/src/custom/bar_chart.dart';
 import 'package:shamiri/src/custom/bubble.dart';
 import 'package:shamiri/src/custom/default_chart.dart';
 import 'package:shamiri/src/custom/recommendation_card.dart';
@@ -130,8 +131,8 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
                     ],
                   ),
                 ),
-                // TODO: weekly  UI
 
+                // weekly  UI
                 ConstrainedBox(
                   constraints: const BoxConstraints.expand(),
                   child: Column(
@@ -188,7 +189,7 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: const [
-                                      Icon(CarbonIcons.arrow_up),
+                                      Icon(CarbonIcons.arrow_down),
                                       Text(
                                         "20%",
                                         style: TextStyle(
@@ -224,6 +225,9 @@ class _DailyWeeklyScreenState extends State<DailyWeeklyScreen>
                             )
                           ],
                         ),
+                      ),
+                      Expanded(
+                        child: DefaultBarChart(data: data),
                       ),
                       const Divider(),
                       const Padding(
